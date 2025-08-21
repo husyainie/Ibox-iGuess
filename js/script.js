@@ -64,7 +64,7 @@ const allQuestions = [
     image: "picture/IBOX_Picture-01.png",
     audio: "song/9 - Sammy Simorangkir - Beri Waktu.mp3",
     question: "Apa judul lagu ini?",
-    options: ["Dia", "Kupilih dia", "Kau harud bahagia", "Beri waktu"],
+    options: ["Dia", "Kupilih dia", "Kau harus bahagia", "Beri waktu"],
     answer: "Beri waktu"
   },
   {
@@ -366,6 +366,7 @@ const allQuestions = [
   // ... hingga song10
 ];
 
+
 let questions = getRandomQuestions(allQuestions); // 🔁 pakai let biar bisa diubah
 
 let currentQuestion = 0;
@@ -383,6 +384,22 @@ const scoreBox = document.getElementById("score-box");
 const feedbackEl = document.getElementById("feedback");
 const questionNumberEl = document.getElementById("question-number");
 const quizContainer = document.querySelector(".quiz-container");
+
+document.getElementById("start-btn").onclick = () => {
+  // sembunyikan start screen
+  document.getElementById("start-screen").style.display = "none";
+
+  // tampilkan elemen quiz
+  document.getElementById("question-number").style.display = "block";
+  document.getElementById("music-box").style.display = "block";
+  document.getElementById("question-box").style.display = "block"; 
+  document.getElementById("feedback").style.display = "block"; 
+
+  // mulai quiz
+  showQuestion();
+};
+
+
 
 function showQuestion() {
   const q = questions[currentQuestion];
@@ -474,38 +491,104 @@ nextBtn.onclick = () => {
 };
 
 function showScore() {
+  // Stop audio
   audioPlayer.pause();
   audioPlayer.currentTime = 0;
+
+  // Sembunyikan elemen quiz
   document.querySelector(".equalizer").style.display = "none";
-  
   document.getElementById("quiz-title").style.display = "none";
   countdownEl.style.display = "none";
+  questionNumberEl.style.display = "none";
+  questionEl.style.display = "none";
+  optionsEl.style.display = "none";
+  feedbackEl.style.display = "none";
+  nextBtn.style.display = "none";
+
+  // Tampilkan gambar akhir
   questionImage.style.display = "block";
   questionImage.src = "picture/winner.png";
 
-  questionEl.textContent = "Quiz Selesai!";
-  optionsEl.innerHTML = "";
-  feedbackEl.textContent = "";
-  nextBtn.style.display = "none";
-  questionNumberEl.textContent = "";
+  // Tampilkan skor
+  scoreBox.style.display = "block";
   scoreBox.textContent = `Skor Akhir Kamu: ${score} dari ${questions.length}`;
 
-  const playAgainBtn = document.createElement("button");
-  playAgainBtn.id = "play-again";
-  playAgainBtn.textContent = "Play Again";
-  playAgainBtn.onclick = () => {
-   window.location.href = "index.html";
-    // currentQuestion = 0;
-    // score = 0;
-    // scoreBox.textContent = "";
-
-    // 🔁 Acak ulang pertanyaan baru setiap klik Play Again
-    questions = getRandomQuestions(allQuestions);
-
-    document.querySelector(".equalizer").style.display = "flex"; // balikin equalizer
-    showQuestion();
-  };
-  scoreBox.appendChild(playAgainBtn);
+  // Tampilkan tombol play again (sudah ada di HTML, awalnya hidden)
+  document.getElementById("play-again-btn").style.display = "block";
 }
 
-window.onload = showQuestion;
+// // 🔁 Tombol Play Again
+// document.getElementById("play-again-btn").onclick = () => {
+//   // Reset state quiz
+//   currentQuestion = 0;
+//   score = 0;
+//   questions = getRandomQuestions(allQuestions);
+
+//   // Sembunyikan skor + tombol play again
+//   scoreBox.style.display = "none";
+//   document.getElementById("play-again-btn").style.display = "none";
+
+  
+//   // Balikin elemen quiz
+//   questionEl.style.display = "block";
+//   optionsEl.style.display = "grid";
+//   feedbackEl.style.display = "block";
+//   nextBtn.style.display = "block";
+//   questionNumberEl.style.display = "block";
+//   document.querySelector(".equalizer").style.display = "flex";
+
+//   // Mulai quiz lagi
+//   showQuestion();
+// };
+
+// 🔁 Fungsi untuk mulai quiz
+function startQuiz() {
+  // Reset state
+  currentQuestion = 0;
+  score = 0;
+  questions = getRandomQuestions(allQuestions);
+
+  // Sembunyikan start screen
+  document.getElementById("start-screen").style.display = "none";
+
+  // Tampilkan elemen quiz
+  questionEl.style.display = "block";
+  optionsEl.style.display = "grid";
+  feedbackEl.style.display = "block";
+  nextBtn.style.display = "block";
+  questionNumberEl.style.display = "block";
+  document.querySelector(".equalizer").style.display = "flex";
+  document.getElementById("music-box").style.display = "block";
+  document.getElementById("question-box").style.display = "block"; 
+  document.getElementById("feedback").style.display = "block"; 
+
+  // mulai quiz
+  showQuestion();
+}
+
+// ▶️ Tombol Start
+document.getElementById("start-btn").onclick = () => {
+  startQuiz();
+};
+
+// 🔁 Tombol Play Again
+document.getElementById("play-again-btn").onclick = () => {
+  // Sembunyikan skor + tombol play again
+  scoreBox.style.display = "none";
+  document.getElementById("play-again-btn").style.display = "none";
+
+  // Munculkan lagi start screen
+  document.getElementById("start-screen").style.display = "block";
+
+  // Sembunyikan elemen quiz dulu
+  questionEl.style.display = "none";
+  optionsEl.style.display = "none";
+  feedbackEl.style.display = "none";
+  nextBtn.style.display = "none";
+  questionNumberEl.style.display = "none";
+  document.querySelector(".equalizer").style.display = "none";
+  questionImage.style.display = "none";
+};
+
+
+
