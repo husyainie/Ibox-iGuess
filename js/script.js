@@ -309,7 +309,7 @@ const allQuestions = [
     image: "picture/IBOX_Picture-01.png",
     audio: "song/43 - Sammy Simorangkir - Pergi Tak Kembali.mp3",
     question: "Apa judul lagu ini?",
-    options: ["Pergi tuk kembali", "Pergi dan kembali", "Pergi tuk kembali", "Kembali untuk pergi"],
+    options: ["Pergi tak kembali", "Pergi dan kembali", "Pergi tuk kembali", "Kembali untuk pergi"],
     answer: "Pergi tuk kembali"
   },
     {
@@ -492,9 +492,10 @@ function showScore() {
   playAgainBtn.id = "play-again";
   playAgainBtn.textContent = "Play Again";
   playAgainBtn.onclick = () => {
-    currentQuestion = 0;
-    score = 0;
-    scoreBox.textContent = "";
+   window.location.href = "index.html";
+    // currentQuestion = 0;
+    // score = 0;
+    // scoreBox.textContent = "";
 
     // 🔁 Acak ulang pertanyaan baru setiap klik Play Again
     questions = getRandomQuestions(allQuestions);
