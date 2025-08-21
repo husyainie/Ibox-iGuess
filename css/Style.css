@@ -1,10 +1,21 @@
 @font-face {
   font-family: "ArticulatCF";
-  src: url("../font/ArticulatCF.ttf") format("truetype"),
-       url("../font/ArticulatCF.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+  src: url("../font/ArticulatCF-Normal.ttf") format("truetype");
+  font-weight: 400;
 }
+
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("../font/ArticulatCF-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "ArticulatCF";
+  src: url("../font/ArticulatCF-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+
 
 html, body {
   margin: 0;
@@ -322,5 +333,6 @@ body {
   font-weight: 600;
   margin-right: 4px;
 }
+
 
 
