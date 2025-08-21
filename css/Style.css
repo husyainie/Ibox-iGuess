@@ -1,11 +1,10 @@
 @font-face {
   font-family: "ArticulatCF";
   src: url("../font/ArticulatCF.ttf") format("truetype"),
-       url("fonts/MyCustomFont.woff") format("woff");
+       url("../font/ArticulatCF.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
-
 
 html, body {
   margin: 0;
@@ -323,4 +322,5 @@ body {
   font-weight: 600;
   margin-right: 4px;
 }
+
 
