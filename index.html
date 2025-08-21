@@ -3,46 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz Tebak Lagu</title>
+  <title>page kuis</title>
   <link rel="stylesheet" href="css/Style.css" />
 </head>
 <body>
   
-    <div class="quiz-container">
-        <!-- ✅ Header -->
-        <div class="header-bar">
-            <img src="picture/logo.png" alt="Logo" class="logo" />
-           </div>
-        <!-- ✅ Halaman Start -->
-        <div id="start-screen">
-          <div class="gts">
-          <h1>Guess The Song</h1>
-          </div>
-          <h2>Are You Ready</h2>
-          <!-- <img id="start-image" src="picture/star.png" alt="start"> -->
-          <button id="start-btn">Start</button>
+  <div class="quiz-container">
+    <!-- ✅ Header -->
+    <div class="header-bar">
+      <img src="picture/logo.png" alt="Logo" class="logo" />
+      <h1 id="quiz-title">Guess The Song</h1>
+      <div id="countdown-timer">10</div>
+    </div>
+
+    <!-- ✅ Halaman Start -->
+     <div id="start-screen">
+        <div class="gts">
+        <h1>Guess The Song</h1>
         </div>
-        <audio id="audio-player"></audio>
+        <h2>Are You Ready</h2>
+        <button id="start-btn">Start</button>
       </div>
+
+    <!-- ✅ Halaman Quiz -->
+
+    <div id="question-number" style="display: none;">Question 1/5</div>
+      <div id="music-box" style="display: none;">
+        <audio id="audio-player"></audio>
+        <div class="equalizer" id="equalizer">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+  
+  
+      <!-- ✅ TEMPAT GAMBAR PERTANYAAN -->
+      <div id="question-image" style="display: none;">
+        <h1>Guess The Song</h1>
+      </div>
+      <!-- <img id="question-image" src="/picture/winner.png" alt="Gambar Pertanyaan" class="question-image" /> -->
+  
+      <!-- ✅ AUDIO -->
+      <audio id="audio-player" autoplay loop controls></audio>
+      <!-- <audio id="audio-player" autoplay loop></audio> -->
+  
+      <div id="question-box" style="display: none;">
+        <p id="question">Memuat pertanyaan...</p>
+        
+        <!-- ✅ 2 KOLOM JAWABAN -->
+        <div id="options" class="options-grid"></div>
+      </div>
+  
+      <div id="feedback" style="display: none;"></div>
+      <button id="next-btn" style="display: none;">Lanjut</button>
+      <div id="score-box" style="display: none;"></div>
+      <button id="play-again-btn" style="display: none;">Play Again</button>
     </div>
   
-  <script>
-    document.getElementById("start-btn").onclick = () => {
-      // redirect ke halaman quiz
-      window.location.href = "quiz.html";
-      document.getElementById("start-btn").addEventListener("click", () => {
-  // langsung play 1 audio kosong atau lagu pertama
-  const audio = document.getElementById("audio-player");
-  audio.src = "song/1 - Cokelat - Luka Lama"; // path audio pertanyaan pertama
-  audio.loop = true;
-  audio.play().catch(err => {
-    console.log("Autoplay dicegah:", err);
-  });
-
-  // lanjut ke halaman quiz
-  window.location.href = "quiz.html";
-  });
-    };
-  </script>
+    <script src="js/script.js"></script>
   </body>
 </html>
