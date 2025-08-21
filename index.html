@@ -4,16 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quiz Tebak Lagu</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/Style.css" />
 </head>
 <body>
-    <div class="quiz-container">
   
-      <div class="header-bar">
-        <img src="logo.png" alt="Logo" class="logo" />
-        <h1>Guess The Song</h1>
-        <div id="countdown-timer">10</div>
-      </div>
+  <!-- <div id="start-screen">
+    <h1>Selamat Datang di Quiz Musik</h1>
+    <img id="start-image" src="picture/winner.png" alt="start">
+    <button id="start-btn">Mulai Quiz</button>
+  </div> -->
+  <div class="quiz-container">
+    <!-- ✅ Header -->
+    <div class="header-bar">
+      <img src="picture/logo.png" alt="Logo" class="logo" />
+      <h1>Guess The Song</h1>
+      <div id="countdown-timer">10</div>
+    </div>
+    <!-- ✅ Halaman Start -->
       <div id="question-number">Question 1/5</div>
       <div id="music-box">
         <audio id="audio-player"></audio>
@@ -51,6 +58,6 @@
 
     </div>
   
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
