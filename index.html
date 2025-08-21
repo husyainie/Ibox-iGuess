@@ -23,14 +23,14 @@
       </div>
     </div>
   
-      <script>
+ <script>
     document.getElementById("start-btn").onclick = () => {
       // redirect ke halaman quiz
       window.location.href = "quiz.html";
       document.getElementById("start-btn").addEventListener("click", () => {
   // langsung play 1 audio kosong atau lagu pertama
   const audio = document.getElementById("audio-player");
-  audio.src = "song/lagu-pertama.mp3"; // path audio pertanyaan pertama
+  audio.src = "song/1 - Cokelat - Luka Lama"; // path audio pertanyaan pertama
   audio.loop = true;
   audio.play().catch(err => {
     console.log("Autoplay dicegah:", err);
@@ -38,8 +38,9 @@
 
   // lanjut ke halaman quiz
   window.location.href = "quiz.html";
-});
+  });
     };
   </script>
   </body>
 </html>
+
